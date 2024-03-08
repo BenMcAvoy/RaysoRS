@@ -40,24 +40,24 @@ impl RaysoConfigBuilder {
         self
     }
 
-    pub fn theme(mut self, theme: String) -> RaysoConfigBuilder {
-        self.theme = Some(theme);
+    pub fn theme(mut self, theme: &str) -> RaysoConfigBuilder {
+        self.theme = Some(theme.to_string());
         self
     }
 
-    pub fn language(mut self, language: String) -> RaysoConfigBuilder {
-        self.language = Some(language);
+    pub fn language(mut self, language: &str) -> RaysoConfigBuilder {
+        self.language = Some(language.to_string());
         self
     }
 
-    pub fn code(mut self, code: String) -> RaysoConfigBuilder {
+    pub fn code(mut self, code: &str) -> RaysoConfigBuilder {
         let encoded = URL_SAFE.encode(code.as_bytes());
         self.code = Some(encoded);
         self
     }
 
-    pub fn title(mut self, title: String) -> RaysoConfigBuilder {
-        self.title = Some(title);
+    pub fn title(mut self, title: &str) -> RaysoConfigBuilder {
+        self.title = Some(title.to_string());
         self
     }
 
@@ -71,7 +71,7 @@ impl RaysoConfigBuilder {
             theme: self.theme.unwrap_or("candy".to_string()),
             language: self.language.unwrap_or("rust".to_string()),
             code: self.code.unwrap_or(encoded.to_string()),
-            title: self.title.unwrap_or("Hello, rayso-rs".to_string()),
+            title: self.title.unwrap_or("rayso-rs".to_string()),
         }
     }
 }
