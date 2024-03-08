@@ -3,6 +3,12 @@ name = "rayso-rs"
 version = "0.1.0"
 edition = "2021"
 
+description = "An 'API' helper for Rayso"
+keywords = ["api", "rayso", "thirtyfour", "tokio", "urlencoding"]
+repository = "https://github.com/BenMcAvoy/RaysoRS"
+categories = ["multimedia::images", "config"]
+license = "MIT"
+
 [dependencies]
 base64 = "0.22.0"
 thirtyfour = "0.31.0"
