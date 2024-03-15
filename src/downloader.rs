@@ -2,7 +2,11 @@ use thirtyfour::{common::capabilities::firefox::FirefoxPreferences, prelude::*};
 
 use crate::RaysoConfig;
 
-use std::{env, thread::{self, sleep}, time::Duration};
+use std::{
+    env,
+    thread::{self, sleep},
+    time::Duration,
+};
 
 pub async fn download(config: RaysoConfig) -> Result<(), Box<dyn std::error::Error>> {
     let mut caps = DesiredCapabilities::firefox();

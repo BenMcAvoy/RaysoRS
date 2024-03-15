@@ -8,7 +8,7 @@ const CODE: &str = r#"fn main() {
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let config = RaysoConfig::builder()
         .background(false)
-        .padding(8)
+        .padding(0)
         .code(CODE)
         .build();
 
