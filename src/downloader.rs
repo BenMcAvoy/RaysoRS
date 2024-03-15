@@ -2,7 +2,7 @@ use thirtyfour::{common::capabilities::firefox::FirefoxPreferences, prelude::*};
 
 use crate::RaysoConfig;
 
-use std::{env, thread::sleep, time::Duration};
+use std::{env, thread::{self, sleep}, time::Duration};
 
 pub async fn download(config: RaysoConfig) -> Result<(), Box<dyn std::error::Error>> {
     let mut caps = DesiredCapabilities::firefox();
@@ -20,6 +20,8 @@ pub async fn download(config: RaysoConfig) -> Result<(), Box<dyn std::error::Err
     let driver = WebDriver::new("http://localhost:4444", caps).await?;
 
     driver.goto(config.to_url()).await?;
+
+    thread::sleep(Duration::from_secs(2));
 
     // TODO: Don't hardcode the class name.
     let export_button = driver
